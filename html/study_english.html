@@ -1,106 +1,74 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Study English | Education</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-
-    <!-- CSS here -->
-    <link rel="stylesheet" href="../css/study.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/study.css">
+<title>게시판</title>
 </head>
 <body>
     <nav class="navbar">
         <div class="logo"><a href="main.html">TalkTalk</a></div>
         <div class="menu">
-          <div class="dropdown">
-            <button class="dropbtn">Study</button>
-            <div class="dropdown-content">
-              <a href="study_english.html">English</a>
-              <a href="study_japanese.html">Japanese</a>
-              <a href="study_chinese.html">Chinese</a>
-              <a href="study_spanish.html">Spanish</a>
+            <div class="dropdown">
+                <button class="dropbtn">Study</button>
+                <div class="dropdown-content">
+                    <a href="study_english.html">English</a>
+                    <a href="study_japanese.html">Japanese</a>
+                    <a href="study_chinese.html">Chinese</a>
+                    <a href="study_spanish.html">Spanish</a>
+                </div>
             </div>
-          </div>
-          <div class="dropdown">
-            <button class="dropbtn">Community</button>
-            <div class="dropdown-content">
-              <a href="#">자유 게시판</a>
-              <a href="#">책 사고팔기</a>
-              <a href="#">스터디 모집</a>
+            <div class="dropdown">
+                <button class="dropbtn">Community</button>
+                <div class="dropdown-content">
+                    <a href="#">자유 게시판</a>
+                    <a href="#">책 사고팔기</a>
+                    <a href="#">스터디 모집</a>
+                </div>
             </div>
-          </div>
-          <a href="about.html">About</a>
+            <a href="about.html">About</a>
         </div>
         <a href="signin.html" class="signin">Sign In</a>
-      </nav>
-    <!-- Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="${cpath}/resources/img/logo/loder.png" alt="">
-                </div>
-            </div>
+</nav>
+    <div class="card">
+        <div class="card-header"><h1>게시판</h1></div>
+        <div class="card-body">
+            <input type="search" placeholder="검색어를 입력하세요.">
+            <a class="search" href="#">검색</a>
         </div>
+        <div class="content-box">
+            <div class="check"><input type="checkbox" name="" id=""></div>
+            <div class="title"><a href="view.html">안녕하세요 이것은 게시판 제목입니다.</a></div>
+            <div class="delete"><button>X</button></div>
+        </div>
+        <div class="content-list">
+            <div class="check"><input type="checkbox" name="" id=""></div>
+            <div class="title"><a href="view.html">게시판에 제목을 입력합니다.</a></div>
+            <div class="delete"><button>X</button></div>
+        </div>
+        <div class="content-box">
+            <div class="check"><input type="checkbox" name="" id=""></div>
+            <div class="title"><a href="view.html">이곳에 제목을 입력하세요.</a></div>
+            <div class="delete"><button>X</button></div>
+        </div>
+        <div class="content-box">
+            <div class="check"><input type="checkbox" name="" id=""></div>
+            <div class="title"><a href="view.html">오늘의 날씨는 어떤가요.</a></div>
+            <div class="delete"><button>X</button></div>
+        </div>
+        <ul class="number">
+            <li><a href="#">&lt;</a></li>
+            <li><a href="#" class="active">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">&gt;</a></li>
+        </ul>
     </div>
-    <main>
-        <!-- slider Area Start -->
-        <section class="slider-area slider-area2">
-            <div class="slider-active">
-                <div class="single-slider slider-height2">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-8 col-lg-11 col-md-12">
-                                <div class="hero__caption hero__caption2">
-                                    <h1 data-animation="bounceIn" data-delay="0.2s">Study English</h1>
-                                    <!-- breadcrumb Start -->
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="${cpath}/">Home</a></li>
-                                            <li class="breadcrumb-item"><a href="#">English</a></li> 
-                                        </ol>
-                                    </nav>
-                                    <!-- breadcrumb End -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>          
-                </div>
-            </div>
-        </section>
-        <!-- Blog Area Start -->
-        <section class="blog_area section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mb-5 mb-lg-0">
-                        <div class="card" style="border: 0px;">
-                            <div class="card-header" style="padding: 20px; padding-bottom: 0px; background: white;">
-                                <div class="container">
-                                    <h1 style="margin-top: 8px; text-align: center; color: #D980FA;">Study English</h1>
-                                </div>
-                            </div>
-                            <!-- Card Body and Table Here... (similar to 공지사항) -->
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="blog_right_sidebar">
-                            <!-- Sidebar Widgets and Search Bar -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Blog Area End -->
-    </main>
-   
-    <!-- Scroll Up -->
-    <div id="back-top" >
-        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    <div class="btn">
+        <a href="write.html">글쓰기</a>
     </div>
-    <script src="study.js"></script>
 </body>
 </html>
