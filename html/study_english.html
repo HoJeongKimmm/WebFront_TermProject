@@ -8,6 +8,29 @@
 <title>게시판</title>
 </head>
 <body>
+    <style>
+        .card,
+.card-write {
+    width: 100%; /* Adjusted from a fixed pixel width to a percentage */
+    max-width: 1000px; /* Optional: sets a maximum width */
+    margin: 50px auto; /* Keeps the card centered */
+    padding: 20px; /* Ensures padding inside the card */
+    box-shadow: 3px 3px 50px #e6e6e6;
+    border-radius: 20px;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-header,
+.card-body,
+.card-write {
+    width: 100%; /* Ensures these elements take the full width of .card */
+}
+
+    </style>
     <nav class="navbar">
         <div class="logo"><a href="main.html">TalkTalk</a></div>
         <div class="menu">
@@ -68,7 +91,7 @@
         </ul>
     </div>
     <div class="btn">
-        <a href="write.html">글쓰기</a>
+        <a href="./write.html">글쓰기</a>
     </div>
 </body>
 </html>
