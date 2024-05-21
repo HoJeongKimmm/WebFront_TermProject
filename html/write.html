@@ -30,28 +30,43 @@
             </div>
             <a href="about.html">About</a>
         </div>
-        <a href="signin.html" class="signin">Sign In</a>
-</nav>
+        <a href="login_sign.html" class="signin">Sign In</a>
+    </nav>
     <div class="card">
         <div class="card-header">
-            <h1><a href="../BOARD/index.html">게시판</a></h1>
+            <h1>글쓰기</h1>
         </div>
         <div class="card-write">
-            <div class="myinfo">
-                <input type="text" placeholder="이름을 입력하세요.">
-                <input type="password" placeholder="비밀번호를 입력하세요.">
-            </div>
-            <div class="title-w">
-                <input type="text" placeholder="제목을 입력하세요.">
-            </div>
-            <div class="msg">
-                <textarea placeholder="내용을 입력하세요."></textarea>
-                <input type="file" name="" id="">
-            </div>
-            <div class="btn">
-                <a href="#">작성</a>
-            </div>
+            <form id="writeForm">
+                <div class="myinfo">
+                    <input type="text" id="username" placeholder="이름을 입력하세요." readonly>
+                    <input type="password" id="password" placeholder="비밀번호를 입력하세요.">
+                </div>
+                <div class="title-w">
+                    <input type="text" id="title" placeholder="제목을 입력하세요.">
+                </div>
+                <div class="msg">
+                    <textarea id="content" placeholder="내용을 입력하세요."></textarea>
+                    <input type="file" id="file" name="file">
+                </div>
+                <div class="btn">
+                    <button type="submit">작성</button>
+                </div>
+            </form>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/study.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loggedInUser = localStorage.getItem('username');
+        if (loggedInUser) {
+            document.getElementById('username').value = loggedInUser;
+        } else {
+            alert('로그인 후 글 작성이 가능합니다.');
+            window.location.href = 'login_sign.html';
+        }
+    });
+    </script>
 </body>
 </html>

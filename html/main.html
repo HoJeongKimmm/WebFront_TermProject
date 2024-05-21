@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TalkTalk Language Learning Center</title>
 <link rel="stylesheet" href="../css/style.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQuery 추가 -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 로그인 상태 확인
+  if (localStorage.getItem('email')) {
+    // 로그인 상태라면 "My Page" 버튼 표시
+    $('.signin').replaceWith('<a href="mypage.html" class="mypage">My Page</a>');
+  }
+});
+</script>
 </head>
 <body>
 <nav class="navbar">
@@ -29,7 +39,7 @@
       </div>
       <a href="about.html">About</a>
     </div>
-    <a href="signin.html" class="signin">Sign In</a>
+    <a href="login_sign.html" class="signin">Sign In</a>
   </nav>
   <div class="header-content">
     <div class="text-content">

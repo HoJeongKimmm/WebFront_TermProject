@@ -1,3 +1,25 @@
+/* Global settings */
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'WAGURITTF';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403@1.0/WAGURITTF.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'WAGURITTF', Arial, sans-serif; /* 글씨체를 WAGURITTF로 변경 */
+    background-color: #f4f4f8;
+}
+
 /* Navbar styles */
 .navbar {
     background-color: #9c27b0; /* 보라색으로 변경 */
@@ -7,6 +29,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    font-family: 'WAGURITTF', Arial, sans-serif; /* Navbar의 글씨체 변경 */
 }
 
 .navbar a, .navbar .dropbtn {
@@ -15,6 +38,7 @@
     text-decoration: none;
     display: inline-block;
     background-color: #9c27b0; /* 호버 색상 변경을 방지하기 위해 배경 색상을 고정 */
+    font-family: 'WAGURITTF', Arial, sans-serif; /* Navbar 링크의 글씨체 변경 */
 }
 
 /* Dropdown Menu */
@@ -31,6 +55,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     border: none; /* 테두리 제거 */
+    font-family: 'WAGURITTF', Arial, sans-serif; /* 드롭다운 내용의 글씨체 변경 */
 }
 
 .dropdown-content a {
@@ -39,6 +64,7 @@
     text-decoration: none;
     display: block;
     background-color: #9c27b0; /* 보라색 계열로 통일 */
+    font-family: 'WAGURITTF', Arial, sans-serif; /* 드롭다운 링크의 글씨체 변경 */
 }
 
 .dropdown:hover .dropdown-content {
@@ -58,48 +84,59 @@
 .logo a, .menu a, .signin {
     background-color: #9c27b0; /* 기본 배경 색상 통일 */
     border: none; /* 모든 링크 테두리 제거 */
+    font-family: 'WAGURITTF', Arial, sans-serif; /* 메뉴 링크의 글씨체 변경 */
 }
 
 .logo {
     margin-right: auto; /* 로고와 나머지 메뉴를 분리 */
 }
 
-
-
-* {
-    margin: 0;
-    padding: 0;
+/* Main content and footer styles */
+.container, .header-content, .main-content, .footer {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-li {
-    list-style: none; /* List 상단에 나오는 '-' 마크 제거 */
+.header-content {
+    background-color: #e1bee7;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+    background-image: url('../img/h1_hero.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 500px;
+    position: relative;
 }
 
-a {
-    color: inherit; /* 글자 색상을 부모로부터 상속 */
-    text-decoration: none;
+.header-content .text-content {
+    font-size: 2.3em; /* 글씨 크기를 키웁니다. */
+    position: absolute; /* 부모 요소를 기준으로 위치를 조정 */
+    left: 100px; /* 왼쪽으로 100px 이동 */
+    top: 50px; /* 위에서 50px 이동 */
+    width: calc(100% - 200px); /* 텍스트 영역의 너비 조정 */
+    text-align: left; /* 텍스트를 왼쪽 정렬 */
 }
 
-head {
-    display: none;
-}
-
-body {
-    display: block;
-}
-
+/* Card styles */
 .card {
     width: 600px;
-    height: 600px;
     margin: 100px auto;
     box-shadow: 3px 3px 50px #e6e6e6;
     border-radius: 20px;
     position: relative; /* 상대적인 위치 */
+    background-color: white;
 }
 
 .card-header {
     padding: 20px;
     text-align: center;
+    background-color: #9c27b0;
+    color: white;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .card-header h1 {
@@ -134,25 +171,31 @@ body {
     border-bottom: 1px solid #e6e6e6;
 }
 
-.card-body div div {
-    display: inline-block;
-    padding: 15px 10px 15px 10px;
-    margin: 0;
-    border: none;
+.card-body .content-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
 }
 
-.card-body .check, .delete {
+.card-body .content-box .check, .card-body .content-box .delete {
     width: 5%;
 }
 
-.card-body .title {
+.card-body .content-box .title {
     width: 70%;
     text-align: left;
 }
 
-.card-body .delete button {
+.card-body .content-box .delete button {
     background-color: #fff;
     border: none;
+    cursor: pointer;
+}
+
+.card-body .author {
+    width: 20%;
+    text-align: center;
 }
 
 .number {
@@ -192,12 +235,7 @@ body {
     border-radius: 10px;
 }
 
-
-.card-header1 h1 {
-    font-size: 30px;
-    font-weight: 600;
-}
-
+/* Form styles */
 .card-write {
     padding: 20px;
 }
@@ -208,31 +246,7 @@ body {
     border: 1px solid #999;
     border-radius: 10px;
     box-shadow: 3px 3px 10px #e6e6e6;
-}
-
-.card-write .myinfo input[type="text"] {
-    width: 25%;
-    margin-right: 50px;
-}
-
-.card-write .myinfo input[type="password"] {
-    width: 31%;
-    /* margin-right: 50px; */
-}
-
-.card-write .title-w input[type="text"] {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 85.5%;
-}
-
-.card-write .msg textarea {
-    min-width: 85.5%;
-    max-width: 85.5%;
-    min-height: 200px;
-    max-height: 200px;
-    box-shadow: inset 3px 3px 10px #e6e6e6;
-    vertical-align: top; /* 텍스트를 수직, 수평 정렬할 수 있다. */
+    width: calc(100% - 40px);
 }
 
 .card-write input[type="file"] {
@@ -242,12 +256,21 @@ body {
     margin-left: 40px;
 }
 
-.btn {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 10px;
-    margin: 10px 10px 20px 10px;
+.card-write .myinfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-write .title-w input[type="text"] {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.card-write .msg textarea {
+    min-height: 200px;
+    max-height: 200px;
+    box-shadow: inset 3px 3px 10px #e6e6e6;
+    vertical-align: top; /* 텍스트를 수직, 수평 정렬할 수 있다. */
 }
 
 .btn-w a {
@@ -255,4 +278,23 @@ body {
     padding: 10px;
     color: #fff;
     border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    .header-content, .main-content, .footer {
+        padding: 10px;
+    }
+
+    .header-content h1, .header-content p {
+        margin-left: 0;
+    }
 }

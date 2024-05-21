@@ -5,42 +5,20 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../css/study.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>게시판</title>
 </head>
 <body>
-    <style>
-        .card,
-.card-write {
-    width: 100%; /* Adjusted from a fixed pixel width to a percentage */
-    max-width: 1000px; /* Optional: sets a maximum width */
-    margin: 50px auto; /* Keeps the card centered */
-    padding: 20px; /* Ensures padding inside the card */
-    box-shadow: 3px 3px 50px #e6e6e6;
-    border-radius: 20px;
-}
-
-.card-body {
-    padding: 20px;
-    text-align: center;
-}
-
-.card-header,
-.card-body,
-.card-write {
-    width: 100%; /* Ensures these elements take the full width of .card */
-}
-
-    </style>
     <nav class="navbar">
         <div class="logo"><a href="main.html">TalkTalk</a></div>
         <div class="menu">
             <div class="dropdown">
                 <button class="dropbtn">Study</button>
                 <div class="dropdown-content">
-                    <a href="study_english.html">English</a>
-                    <a href="study_japanese.html">Japanese</a>
-                    <a href="study_chinese.html">Chinese</a>
-                    <a href="study_spanish.html">Spanish</a>
+                    <a href="#" data-lang="english">English</a>
+                    <a href="#" data-lang="japanese">Japanese</a>
+                    <a href="#" data-lang="chinese">Chinese</a>
+                    <a href="#" data-lang="spanish">Spanish</a>
                 </div>
             </div>
             <div class="dropdown">
@@ -53,34 +31,15 @@
             </div>
             <a href="about.html">About</a>
         </div>
-        <a href="signin.html" class="signin">Sign In</a>
-</nav>
+        <a href="login_sign.html" class="signin">Sign In</a>
+    </nav>
     <div class="card">
-        <div class="card-header"><h1>게시판</h1></div>
+        <div class="card-header"><h1 id="boardTitle">게시판</h1></div>
         <div class="card-body">
             <input type="search" placeholder="검색어를 입력하세요.">
             <a class="search" href="#">검색</a>
         </div>
-        <div class="content-box">
-            <div class="check"><input type="checkbox" name="" id=""></div>
-            <div class="title"><a href="view.html">안녕하세요 이것은 게시판 제목입니다.</a></div>
-            <div class="delete"><button>X</button></div>
-        </div>
-        <div class="content-list">
-            <div class="check"><input type="checkbox" name="" id=""></div>
-            <div class="title"><a href="view.html">게시판에 제목을 입력합니다.</a></div>
-            <div class="delete"><button>X</button></div>
-        </div>
-        <div class="content-box">
-            <div class="check"><input type="checkbox" name="" id=""></div>
-            <div class="title"><a href="view.html">이곳에 제목을 입력하세요.</a></div>
-            <div class="delete"><button>X</button></div>
-        </div>
-        <div class="content-box">
-            <div class="check"><input type="checkbox" name="" id=""></div>
-            <div class="title"><a href="view.html">오늘의 날씨는 어떤가요.</a></div>
-            <div class="delete"><button>X</button></div>
-        </div>
+        <div id="contentList"></div>
         <ul class="number">
             <li><a href="#">&lt;</a></li>
             <li><a href="#" class="active">1</a></li>
@@ -93,5 +52,6 @@
     <div class="btn">
         <a href="./write.html">글쓰기</a>
     </div>
+    <script src="../js/study.js"></script>
 </body>
 </html>
