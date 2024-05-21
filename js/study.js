@@ -167,27 +167,28 @@ $(document).ready(function() {
     // 글 작성 폼 제출 이벤트 처리
     $("#writeForm").submit(function(e) {
         e.preventDefault();
-
+    
         const loggedInUser = localStorage.getItem('username'); // 사용자 이름 가져오기
         const title = $("#title").val();
         const content = $("#content").val();
-
+    
         if (!loggedInUser) {
             alert('로그인 후 글 작성이 가능합니다.');
-            window.location.href = 'signin.html';
+            window.location.href = 'login_sign.html';
             return;
         }
-
+    
         var postData = {
             title: title,
             content: content,
             author: loggedInUser
         };
-
+    
         $.ajax({
             url: "http://localhost:8000/create-post",  // 서버의 주소로 수정
             type: "POST",
-            data: postData,
+            data: JSON.stringify(postData),
+            contentType: "application/json",
             success: function(response) {
                 if (response.status) {
                     alert("글이 성공적으로 작성되었습니다.");
@@ -201,4 +202,8 @@ $(document).ready(function() {
             }
         });
     });
+    
+    
 });
+    
+
