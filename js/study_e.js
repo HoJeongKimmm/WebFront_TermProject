@@ -9,9 +9,30 @@ $(document).ready(function() {
         loadBoard(language);
     });
 
-    function loadBoard(language) {
+    async function loadBoard(language) {
         $('#boardTitle').text(`${language.charAt(0).toUpperCase() + language.slice(1)} 게시판`);
+
         // 비동기로 게시판 데이터 로드 (서버와 연동 필요)
+        const posts = await fetchPosts(language);
+        
+        const contentList = $('#contentList');
+        contentList.empty();
+
+        const fragment = $(document.createDocumentFragment());
+        posts.forEach(post => {
+            fragment.append(`
+                <div class="content-box">
+                    <div class="check"><input type="checkbox" name="" id=""></div>
+                    <div class="title"><a href="view.html">${post.title}</a></div>
+                    <div class="author">${post.author}</div>
+                    <div class="delete"><button class="deletePostButton" data-postid="${post.id}">X</button></div>
+                </div>
+            `);
+        });
+        contentList.append(fragment);
+    }
+
+    async function fetchPosts(language) {
         // 예제 데이터
         const posts = {
             english: [
@@ -31,20 +52,7 @@ $(document).ready(function() {
                 { id: 2, title: 'Bienvenido al tablero de anuncios en español.', author: 'User2' }
             ]
         };
-
-        const contentList = $('#contentList');
-        contentList.empty();
-
-        posts[language].forEach(post => {
-            contentList.append(`
-                <div class="content-box">
-                    <div class="check"><input type="checkbox" name="" id=""></div>
-                    <div class="title"><a href="view.html">${post.title}</a></div>
-                    <div class="author">${post.author}</div>
-                    <div class="delete"><button class="deletePostButton" data-postid="${post.id}">X</button></div>
-                </div>
-            `);
-        });
+        return posts[language];
     }
 
     // 로그인 상태 확인
@@ -83,25 +91,25 @@ $(document).ready(function() {
     });
 
     // 글 데이터 로딩
-    function loadPostData(postID) {
-        $.ajax({
-            url: "/get-post",
-            type: "GET",
-            data: { id: postID },
-            dataType: "json",
-            success: function(response) {
-                if (response.status) {
-                    $("#title").val(response.data.title);
-                    $("#content").val(response.data.content);
-                    displayForm("edit", postID);
-                } else {
-                    alert("Failed to load post data.");
-                }
-            },
-            error: function() {
-                alert("Error loading post data.");
+    async function loadPostData(postID) {
+        try {
+            const response = await $.ajax({
+                url: "/get-post",
+                type: "GET",
+                data: { id: postID },
+                dataType: "json"
+            });
+
+            if (response.status) {
+                $("#title").val(response.data.title);
+                $("#content").val(response.data.content);
+                displayForm("edit", postID);
+            } else {
+                alert("Failed to load post data.");
             }
-        });
+        } catch (error) {
+            alert("Error loading post data.");
+        }
     }
 
     // 폼 표시 (새 글 작성 또는 수정)
@@ -112,9 +120,9 @@ $(document).ready(function() {
     }
 
     // 글 제출 처리 (생성 및 수정)
-    function submitPostForm() {
+    async function submitPostForm() {
         const loggedInUser = localStorage.getItem('username'); // 사용자 이름 가져오기
-        var postData = {
+        const postData = {
             id: $("#postID").val(),
             title: $("#title").val(),
             content: $("#content").val(),
@@ -122,46 +130,48 @@ $(document).ready(function() {
             author: loggedInUser // 작성자 이름 추가
         };
 
-        $.ajax({
-            url: postData.type === "new" ? "http://localhost:8000/create-post" : "http://localhost:8000/update-post",
-            type: "POST",
-            data: postData,
-            success: function(response) {
-                if (response.status) {
-                    alert("Post has been " + (postData.type === "new" ? "created." : "updated."));
-                    location.reload();  // 페이지 새로고침
-                } else {
-                    alert("Failed to " + (postData.type === "new" ? "create" : "update") + " post.");
-                }
-            },
-            error: function() {
-                alert("Error processing post.");
+        try {
+            const response = await $.ajax({
+                url: postData.type === "new" ? "http://localhost:8000/create-post" : "http://localhost:8000/update-post",
+                type: "POST",
+                data: JSON.stringify(postData),
+                contentType: "application/json"
+            });
+
+            if (response.status) {
+                alert("Post has been " + (postData.type === "new" ? "created." : "updated."));
+                location.reload();  // 페이지 새로고침
+            } else {
+                alert("Failed to " + (postData.type === "new" ? "create" : "update") + " post.");
             }
-        });
+        } catch (error) {
+            alert("Error processing post.");
+        }
     }
 
     // 글 삭제 처리
-    function deletePost(postID) {
+    async function deletePost(postID) {
         if (!confirm("Are you sure you want to delete this post?")) {
             return;
         }
 
-        $.ajax({
-            url: "http://localhost:8000/delete-post",
-            type: "POST",
-            data: { id: postID },
-            success: function(response) {
-                if (response.status) {
-                    alert("Post has been deleted.");
-                    location.reload();  // 페이지 새로고침
-                } else {
-                    alert("Failed to delete post.");
-                }
-            },
-            error: function() {
-                alert("Error deleting post.");
+        try {
+            const response = await $.ajax({
+                url: "http://localhost:8000/delete-post",
+                type: "POST",
+                data: JSON.stringify({ id: postID }),
+                contentType: "application/json"
+            });
+
+            if (response.status) {
+                alert("Post has been deleted.");
+                location.reload();  // 페이지 새로고침
+            } else {
+                alert("Failed to delete post.");
             }
-        });
+        } catch (error) {
+            alert("Error deleting post.");
+        }
     }
 
     // 글 작성 폼 제출 이벤트 처리
@@ -178,7 +188,7 @@ $(document).ready(function() {
             return;
         }
     
-        var postData = {
+        const postData = {
             title: title,
             content: content,
             author: loggedInUser
@@ -202,8 +212,4 @@ $(document).ready(function() {
             }
         });
     });
-    
-    
 });
-    
-

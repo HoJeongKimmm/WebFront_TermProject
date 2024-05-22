@@ -16,20 +16,20 @@ html, body {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    font-family: 'WAGURITTF', Arial, sans-serif; /* 글씨체를 WAGURITTF로 변경 */
+    font-family: 'WAGURITTF', Arial, sans-serif;
     background-color: #f4f4f8;
 }
 
 /* Navbar styles */
 .navbar {
-    background-color: #9c27b0; /* 보라색으로 변경 */
+    background-color: #9c27b0;
     color: white;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    font-family: 'WAGURITTF', Arial, sans-serif; /* Navbar의 글씨체 변경 */
+    font-family: 'WAGURITTF', Arial, sans-serif;
 }
 
 .navbar a, .navbar .dropbtn {
@@ -37,8 +37,8 @@ html, body {
     padding: 12px 16px;
     text-decoration: none;
     display: inline-block;
-    background-color: #9c27b0; /* 호버 색상 변경을 방지하기 위해 배경 색상을 고정 */
-    font-family: 'WAGURITTF', Arial, sans-serif; /* Navbar 링크의 글씨체 변경 */
+    background-color: #9c27b0;
+    font-family: 'WAGURITTF', Arial, sans-serif;
 }
 
 /* Dropdown Menu */
@@ -54,8 +54,8 @@ html, body {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    border: none; /* 테두리 제거 */
-    font-family: 'WAGURITTF', Arial, sans-serif; /* 드롭다운 내용의 글씨체 변경 */
+    border: none;
+    font-family: 'WAGURITTF', Arial, sans-serif;
 }
 
 .dropdown-content a {
@@ -63,8 +63,8 @@ html, body {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    background-color: #9c27b0; /* 보라색 계열로 통일 */
-    font-family: 'WAGURITTF', Arial, sans-serif; /* 드롭다운 링크의 글씨체 변경 */
+    background-color: #9c27b0;
+    font-family: 'WAGURITTF', Arial, sans-serif;
 }
 
 .dropdown:hover .dropdown-content {
@@ -72,23 +72,23 @@ html, body {
 }
 
 .dropdown .dropbtn {
-    background-color: #9c27b0; /* 드롭다운 버튼 배경색 */
-    border: none; /* 버튼 테두리 제거 */
+    background-color: #9c27b0;
+    border: none;
 }
 
 .dropdown .dropbtn:hover, .navbar a:hover {
-    background-color: #555; /* 호버 시 배경 색상 변경 */
-    border: none; /* 호버 시 테두리 제거 */
+    background-color: #555;
+    border: none;
 }
 
 .logo a, .menu a, .signin {
-    background-color: #9c27b0; /* 기본 배경 색상 통일 */
-    border: none; /* 모든 링크 테두리 제거 */
-    font-family: 'WAGURITTF', Arial, sans-serif; /* 메뉴 링크의 글씨체 변경 */
+    background-color: #9c27b0;
+    border: none;
+    font-family: 'WAGURITTF', Arial, sans-serif;
 }
 
 .logo {
-    margin-right: auto; /* 로고와 나머지 메뉴를 분리 */
+    margin-right: auto;
 }
 
 /* Main content and footer styles */
@@ -112,26 +112,26 @@ html, body {
 }
 
 .header-content .text-content {
-    font-size: 2.3em; /* 글씨 크기를 키웁니다. */
-    position: absolute; /* 부모 요소를 기준으로 위치를 조정 */
-    left: 100px; /* 왼쪽으로 100px 이동 */
-    top: 50px; /* 위에서 50px 이동 */
-    width: calc(100% - 200px); /* 텍스트 영역의 너비 조정 */
-    text-align: left; /* 텍스트를 왼쪽 정렬 */
+    font-size: 2.3em;
+    position: absolute;
+    left: 100px;
+    top: 50px;
+    width: calc(100% - 200px);
+    text-align: left;
 }
 
 /* Card styles */
 .card {
-    width: 600px;
-    margin: 100px auto;
+    width: 900px; /* 너비를 1.5배로 키움 */
+    margin: 150px auto; /* 여백을 1.5배로 키움 */
     box-shadow: 3px 3px 50px #e6e6e6;
     border-radius: 20px;
-    position: relative; /* 상대적인 위치 */
+    position: relative;
     background-color: white;
 }
 
 .card-header {
-    padding: 20px;
+    padding: 30px; /* 패딩을 1.5배로 키움 */
     text-align: center;
     background-color: #9c27b0;
     color: white;
@@ -140,34 +140,34 @@ html, body {
 }
 
 .card-header h1 {
-    font-size: 30px;
+    font-size: 45px; /* 글씨 크기를 1.5배로 키움 */
     font-weight: 600;
 }
 
 .card-body {
-    padding: 20px;
+    padding: 30px; /* 패딩을 1.5배로 키움 */
     text-align: center;
 }
 
 .card-body input[type="search"] {
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 15px; /* 패딩을 1.5배로 키움 */
+    margin-bottom: 15px; /* 마진을 1.5배로 키움 */
     border: 1px solid #999;
     border-radius: 10px;
-    width: 300px;
-    font-size: 16px;
+    width: 450px; /* 너비를 1.5배로 키움 */
+    font-size: 24px; /* 글씨 크기를 1.5배로 키움 */
 }
 
 .card-body .search {
-    padding: 10px 15px 10px 15px;
-    margin-left: 10px;
+    padding: 15px 22.5px; /* 패딩을 1.5배로 키움 */
+    margin-left: 15px; /* 마진을 1.5배로 키움 */
     border-radius: 10px;
     background-color: tomato;
     color: #fff;
 }
 
 .card-body div {
-    margin-top: 10px;
+    margin-top: 15px; /* 마진을 1.5배로 키움 */
     border-bottom: 1px solid #e6e6e6;
 }
 
@@ -175,31 +175,37 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-}
-
-.card-body .content-box .check, .card-body .content-box .delete {
-    width: 5%;
+    padding: 15px; /* 패딩을 1.5배로 키움 */
 }
 
 .card-body .content-box .title {
-    width: 70%;
+    flex: 1;
     text-align: left;
+    white-space: nowrap; /* 한 줄로 표시 */
+    overflow: hidden; /* 넘치는 텍스트 숨김 */
+    text-overflow: ellipsis; /* 넘치는 텍스트를 ...으로 표시 */
 }
 
-.card-body .content-box .delete button {
-    background-color: #fff;
-    border: none;
-    cursor: pointer;
+.card-body .content-box .title a {
+    color: black; /* 하이퍼링크 색상 변경 */
+    text-decoration: none; /* 밑줄 제거 */
 }
 
-.card-body .author {
-    width: 20%;
-    text-align: center;
+.card-body .content-box .title a:hover {
+    color: gray; /* 호버 시 색상 변경 (선택 사항) */
+}
+
+.card-body .content-box .author {
+    flex: 0 0 150px;
+    text-align: right;
+    margin-left: 10px;
 }
 
 .number {
-    padding: 10px;
+    padding: 15px; /* 패딩을 1.5배로 키움 */
+    display: flex;
+    justify-content: center; /* 가운데 정렬 */
+    font-size: 0.8em; /* 크기를 0.8배로 축소 */
 }
 
 .number li {
@@ -208,11 +214,11 @@ html, body {
 
 .number li a {
     display: block;
-    width: 40px;
-    line-height: 40px;
+    width: 48px; /* 너비를 0.8배로 줄임 */
+    line-height: 48px; /* 높이를 0.8배로 줄임 */
     border-radius: 10px;
-    margin: 3px;
-    margin-top: 20px;
+    margin: 3.6px; /* 마진을 0.8배로 줄임 */
+    margin-top: 24px; /* 마진을 0.8배로 줄임 */
     box-shadow: 0 5px 10px #1f1f1f;
 }
 
@@ -221,15 +227,15 @@ html, body {
 }
 
 .btn {
-    position: absolute; /* 절대적인 위치 */
+    position: absolute;
     right: 0;
     bottom: 0;
-    padding: 10px;
-    margin: 10px 10px 20px 10px ;
+    padding: 15px; /* 패딩을 1.5배로 키움 */
+    margin: 15px 15px 30px 15px; /* 마진을 1.5배로 키움 */
 }
 
 .btn a {
-    padding: 10px;
+    padding: 15px; /* 패딩을 1.5배로 키움 */
     background-color: tomato;
     color: #fff;
     border-radius: 10px;
@@ -237,23 +243,23 @@ html, body {
 
 /* Form styles */
 .card-write {
-    padding: 20px;
+    padding: 30px; /* 패딩을 1.5배로 키움 */
 }
 
 .card-write input, textarea {
-    margin-left: 10px;
-    padding: 10px;
+    margin-left: 15px; /* 마진을 1.5배로 키움 */
+    padding: 15px; /* 패딩을 1.5배로 키움 */
     border: 1px solid #999;
     border-radius: 10px;
     box-shadow: 3px 3px 10px #e6e6e6;
-    width: calc(100% - 40px);
+    width: calc(100% - 60px); /* 너비를 1.5배로 키움 */
 }
 
 .card-write input[type="file"] {
     border: none;
     box-shadow: none;
-    padding: 10px;
-    margin-left: 40px;
+    padding: 15px; /* 패딩을 1.5배로 키움 */
+    margin-left: 60px; /* 마진을 1.5배로 키움 */
 }
 
 .card-write .myinfo {
@@ -262,20 +268,20 @@ html, body {
 }
 
 .card-write .title-w input[type="text"] {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 30px; /* 마진을 1.5배로 키움 */
+    margin-bottom: 30px; /* 마진을 1.5배로 키움 */
 }
 
 .card-write .msg textarea {
-    min-height: 200px;
-    max-height: 200px;
+    min-height: 300px; /* 높이를 1.5배로 키움 */
+    max-height: 300px; /* 높이를 1.5배로 키움 */
     box-shadow: inset 3px 3px 10px #e6e6e6;
-    vertical-align: top; /* 텍스트를 수직, 수평 정렬할 수 있다. */
+    vertical-align: top;
 }
 
 .btn-w a {
     background-color: tomato;
-    padding: 10px;
+    padding: 15px; /* 패딩을 1.5배로 키움 */
     color: #fff;
     border-radius: 10px;
 }
