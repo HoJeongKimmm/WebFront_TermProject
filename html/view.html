@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/study.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<title>글 보기</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="main.html">TalkTalk</a></div>
+        <div class="menu">
+            <div class="dropdown">
+                <button class="dropbtn">Study</button>
+                <div class="dropdown-content">
+                    <a href="#" data-lang="english">English</a>
+                    <a href="#" data-lang="japanese">Japanese</a>
+                    <a href="#" data-lang="chinese">Chinese</a>
+                    <a href="#" data-lang="spanish">Spanish</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Community</button>
+                <div class="dropdown-content">
+                    <a href="#">자유 게시판</a>
+                    <a href="#">책 사고팔기</a>
+                    <a href="#">스터디 모집</a>
+                </div>
+            </div>
+            <a href="about.html">About</a>
+        </div>
+        <a href="login_sign.html" class="signin">Sign In</a>
+    </nav>
+    <div class="card">
+        <div class="card-header"><h1 id="postTitle">글 제목</h1></div>
+        <div class="card-body">
+            <div id="postContent">글 내용 로드 중...</div>
+            <div class="author" id="postAuthor"></div>
+        </div>
+    </div>
+    <script src="../js/common.js"></script>
+    <script>
+        $(document).ready(function() {
+            // URL 파라미터에서 글 ID 가져오기
+            const urlParams = new URLSearchParams(window.location.search);
+            const postID = urlParams.get('id');
+            
+            if (postID) {
+                loadPostData(postID, function(data) {
+                    $('#postTitle').text(data.title);
+                    $('#postContent').text(data.content);
+                    $('#postAuthor').text(`작성자: ${data.author}`);
+                });
+            } else {
+                alert('잘못된 접근입니다.');
+                history.back();
+            }
+        });
+    </script>
+</body>
+</html>
