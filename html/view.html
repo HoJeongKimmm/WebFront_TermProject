@@ -48,7 +48,9 @@
             const postID = urlParams.get('id');
             
             if (postID) {
+                console.log('Post ID:', postID); // Debugging line
                 loadPostData(postID, function(data) {
+                    console.log('Post Data:', data); // Debugging line
                     $('#postTitle').text(data.title);
                     $('#postContent').text(data.content);
                     $('#postAuthor').text(`작성자: ${data.author}`);
